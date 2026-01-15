@@ -1,9 +1,15 @@
-import { NODE_ENV, PORT, mongoDBURL } from "./config.js";
+import dotenv from "dotenv";
 import booksRouter from "./routes/booksRoutes.js";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
+
+dotenv.config();
+
+const NODE_ENV = process.env.NODE_ENV || 5000;
+const PORT = process.env.PORT;
+const mongoDBURL = process.env.mongoDBURL;
 
 mongoose
 	.connect(mongoDBURL)
